@@ -9,7 +9,6 @@ public class Event extends Task {
 
     @Override
     public String toString() {
-        //super.description = super.description + "(at: " + at + ")";
         return "[E]" + "[" + super.getStatusIcon() + "] " + super.description + "(at: " + at + ")";
     }
 }

@@ -9,7 +9,6 @@ public class Deadline extends Task {
 
     @Override
     public String toString() {
-        //super.description = super.description + "(by: " + by + ")";
         return "[D]" + "[" + super.getStatusIcon() + "] " + super.description + "(by: " + by + ")";
     }
 }
