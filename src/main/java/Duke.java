@@ -1,3 +1,4 @@
+import java.lang.module.InvalidModuleDescriptorException;
 import java.util.Scanner;
 import java.util.*;
 
@@ -87,21 +88,19 @@ public class Duke {
                             String d_input = input.substring(9);
                             String[] token = d_input.split("/by");
                             Task t = new Deadline(token[0], token[1]);
-                            if(token[0].isBlank()) {
-                                System.out.println("☹ OOPS!!! /by cannot be empty.");
-                                continue;
-                            }
-                            if(token[1].isBlank()) {
-                                System.out.println("☹ OOPS!!! /by cannot be empty.");
-                                continue;
-                            }
                             task_list.add(t);
                             System.out.println("\tGot it. I've added this task\n\t" + t.toString() + "\n");
                             System.out.println("\tNow you have " + task_list.size() + " tasks in this list\n");
                         }
-                        catch ( ArrayIndexOutOfBoundsException | StringIndexOutOfBoundsException e) {
+                        catch (Exception e) {
                             if(e instanceof StringIndexOutOfBoundsException) {
                                 System.out.println("☹ OOPS!!! The description of deadline cannot be empty.");
+                            }
+                            else if (e instanceof IndexOutOfBoundsException){
+                                System.out.println("☹ OOPS!!! please enter a valid Date after /by (DD/MM/YYYY).");
+                            }
+                            else {
+                                System.out.println(e.getMessage());
                             }
                         }
                         System.out.println(partition);
@@ -119,8 +118,23 @@ public class Duke {
                             System.out.println("\tNow you have " + task_list.size() + " tasks in this list\n");
                         }
                         catch (Exception e) {
-                            System.out.println("invalid Event command " + e.getMessage());
+                            if(e instanceof StringIndexOutOfBoundsException) {
+                                System.out.println("☹ OOPS!!! The description of event cannot be empty.");
+                            }
+                            else if(e instanceof  IndexOutOfBoundsException) {
+                                System.out.println("☹ OOPS!!! please enter a valid Date and Time after /at.");
+                            }
+                            else {
+                                System.out.println(e.getMessage());
+                            }
                         }
+                        System.out.println(partition);
+                    }
+                    else {
+                        System.out.println(partition);
+                        System.out.println("☹ OOPS!!! please enter a valid command\n" +
+                                            "done\n" + "list\n" + "todo\n" + "deadline\n" +
+                                            "event\n");
                         System.out.println(partition);
                     }
                 }
