@@ -21,6 +21,7 @@ public class Duke {
         while(true) {
             input = sc.nextLine();
             if (input.equals("bye")) { //user enters the bye command
+                file.requestToWriteTheFile(task_list);
                 System.out.println(partition + "\t" + bye_msg + "\n"+ partition);
                 break;
             }

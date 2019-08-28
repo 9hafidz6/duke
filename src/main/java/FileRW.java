@@ -2,8 +2,6 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class FileRW extends Task{
-    private static Task[] data_list = new Task[100];
-    private static int task_num = 0;
     ArrayList<Task> task_list = new ArrayList<Task> (100);
 
     public FileRW() {
@@ -41,7 +39,6 @@ public class FileRW extends Task{
                 else {
                     System.out.println("invalid file data");
                 }
-                data_list[task_num++] = t;
             }
             reader.close();
         }
@@ -51,7 +48,39 @@ public class FileRW extends Task{
             e.printStackTrace();
         }
     }
-    public ArrayList<Task> GetData() {
+    ArrayList<Task> GetData() {
         return task_list;
+    }
+    void requestToWriteTheFile(ArrayList<Task> taskList) {
+        try {
+            FileWriter fileWriter = new FileWriter("data/duke.txt");
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+            writer.write("");
+            for (Task t : taskList) {
+                if (t instanceof ToDos) {
+                    if (t.isDone)
+                        writer.write(t.type + "@1@" + t.description + "\n");
+                    else
+                        writer.write(t.type + "@0@" + t.description + "\n");
+                } else if (t instanceof Event) {
+                    if (t.isDone)
+                        writer.write(t.type + "@1@" + t.description + "@"
+                                + ((Event) t).at + "\n");
+                    else
+                        writer.write(t.type + "@0@" + t.description + "@"
+                                + ((Event) t).at + "\n");
+                } else if (t instanceof Deadline) {
+                    if (t.isDone)
+                        writer.write(t.type + "@1@" + t.description + "@"
+                                + ((Deadline) t).by + "\n");
+                    else
+                        writer.write(t.type + "@0@" + t.description + "@"
+                                + ((Deadline) t).by + "\n");
+                }
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
