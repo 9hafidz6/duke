@@ -1,17 +1,23 @@
 import java.lang.module.InvalidModuleDescriptorException;
 import java.util.Scanner;
 import java.util.*;
+import java.io.*;
 
 public class Duke {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
+        FileRW file = new FileRW();
+
         String partition = "_____________________________________\n";
         String greet_msg = "Hello! i'm Duke\n" + "What can i do for you?\n";
         String bye_msg = "Bye. Hope to see you again soon!";
         String input;
         ArrayList<Task> task_list = new ArrayList<Task> (100);
+        task_list = file.GetData();
 
         System.out.println(partition + greet_msg + partition);
+
         while(true) {
             input = sc.nextLine();
             if (input.equals("bye")) { //user enters the bye command
@@ -53,8 +59,8 @@ public class Duke {
 
                 boolean flag = false; //flag to check whether task exists in list
 
-                for(int a = 0; a < task_list.size(); a++) {
-                    if (task_list.get(a).description.equals(input)) { //if item has already been added, don't add
+                for (Task task : task_list) {
+                    if (task.description.equals(input)) { //if item has already been added, don't add
                         flag = true;
                         break;
                     }
