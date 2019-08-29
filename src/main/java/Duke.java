@@ -1,6 +1,9 @@
 import java.lang.module.InvalidModuleDescriptorException;
 import java.util.Scanner;
 import java.util.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.text.ParseException;
 import java.io.*;
 
 public class Duke {
@@ -8,6 +11,7 @@ public class Duke {
 
         Scanner sc = new Scanner(System.in);
         FileRW file = new FileRW();
+        SimpleDateFormat F_date = new SimpleDateFormat("dd/MM/yyyy HHmm");
 
         String partition = "_____________________________________\n";
         String greet_msg = "Hello! i'm Duke\n" + "What can i do for you?\n";
@@ -27,6 +31,9 @@ public class Duke {
             }
             else if (input.equals("list")) { //user enters the list command
                 System.out.println(partition);
+                if(task_list.size() == 0) {
+                    System.out.println("list is empty");
+                }
                 for(int a = 0; a < task_list.size(); a++) { //outputs all entry of list
                     System.out.println((a+1) + ". " + task_list.get(a).toString() + "\n");
                 }
@@ -93,8 +100,10 @@ public class Duke {
                         try {
                             input = input.replaceAll("\\s+", " ");
                             String d_input = input.substring(9);
-                            String[] token = d_input.split("/by");
-                            Task t = new Deadline(token[0], token[1]);
+                            String[] token = d_input.split(" /by ");
+                            Date date = F_date.parse(token[1]);
+                            String formattedDate = date.toString();
+                            Task t = new Deadline(token[0], formattedDate);
                             task_list.add(t);
                             System.out.println("\tGot it. I've added this task\n\t" + t.toString() + "\n");
                             System.out.println("\tNow you have " + task_list.size() + " tasks in this list\n");
@@ -118,8 +127,10 @@ public class Duke {
                         try{
                             input = input.replaceAll("\\s+", " ");
                             String e_input = input.substring(6);
-                            String[] token = e_input.split("/at");
-                            Task t = new Event(token[0],token[1]);
+                            String[] token = e_input.split(" /at ");
+                            Date date = F_date.parse(token[1]);
+                            String formattedDate = date.toString();
+                            Task t = new Event(token[0],formattedDate);
                             task_list.add(t);
                             System.out.println("\tGot it. I've added this task\n\t" + t.toString() + "\n");
                             System.out.println("\tNow you have " + task_list.size() + " tasks in this list\n");
