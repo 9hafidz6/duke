@@ -1,3 +1,4 @@
+import javax.print.DocFlavor;
 import java.lang.module.InvalidModuleDescriptorException;
 import java.util.Scanner;
 import java.util.*;
@@ -17,6 +18,7 @@ public class Duke {
         String greet_msg = "Hello! i'm Duke\n" + "What can i do for you?\n";
         String bye_msg = "Bye. Hope to see you again soon!";
         String input;
+        String[] token;
         ArrayList<Task> task_list = new ArrayList<Task> (100);
         task_list = file.GetData();
 
@@ -42,7 +44,7 @@ public class Duke {
             else if (input.indexOf("done") == 0) { //user enters done command
                 System.out.println(partition);
                 try{
-                    String[] token = input.split(" ");
+                    token = input.split(" ");
                     if(((Integer.parseInt(token[1]) - 1) > task_list.size()) || (Integer.parseInt(token[1]) - 1) < 0) {
                         System.out.println("☹ OOPS!!! Index is not in the list.");
                         System.out.println(partition);
@@ -63,7 +65,26 @@ public class Duke {
                 }
                 System.out.println(partition);
             }
-            else { //if user enters a command, add into task_list
+            else if (input.indexOf("delete") == 0) { //deletes a task in the list
+                System.out.println(partition);
+                try {
+                    token = input.split(" ");
+                    if(task_list.size() < Integer.parseInt(token[1])) {
+                        System.out.println("Task does not exist in the list, you have " + task_list.size() + " tasks left in your list");
+                    }
+                    else {
+                        System.out.println("Noted. I've removed this task: \n");
+                        System.out.println(task_list.get(Integer.parseInt(token[1]) - 1) + "\n");
+                        task_list.remove(Integer.parseInt(token[1]) -1);
+                        System.out.println("you have " + task_list.size() + " tasks left in your list");
+                    }
+                }
+                catch (NumberFormatException e) {
+                    System.out.println("enter a valid index");
+                }
+                System.out.println(partition);
+            }
+            else { //if user enters a command, todo, deadline and event
 
                 boolean flag = false; //flag to check whether task exists in list
 
@@ -100,7 +121,7 @@ public class Duke {
                         try {
                             input = input.replaceAll("\\s+", " ");
                             String d_input = input.substring(9);
-                            String[] token = d_input.split(" /by ");
+                            token = d_input.split(" /by ");
                             Date date = F_date.parse(token[1]);
                             String formattedDate = date.toString();
                             Task t = new Deadline(token[0], formattedDate);
@@ -127,7 +148,7 @@ public class Duke {
                         try{
                             input = input.replaceAll("\\s+", " ");
                             String e_input = input.substring(6);
-                            String[] token = e_input.split(" /at ");
+                            token = e_input.split(" /at ");
                             Date date = F_date.parse(token[1]);
                             String formattedDate = date.toString();
                             Task t = new Event(token[0],formattedDate);
