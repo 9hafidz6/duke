@@ -70,7 +70,7 @@ public class Duke {
                 try {
                     token = input.split(" ");
                     if(task_list.size() < Integer.parseInt(token[1])) {
-                        System.out.println("Task does not exist in the list, you have " + task_list.size() + " tasks left in your list");
+                        System.out.println("Task number " + token[1] + " does not exist in the list, " + task_list.size() + " tasks left in your list");
                     }
                     else {
                         System.out.println("Noted. I've removed this task: \n");
@@ -81,6 +81,24 @@ public class Duke {
                 }
                 catch (NumberFormatException e) {
                     System.out.println("enter a valid index");
+                }
+                System.out.println(partition);
+            }
+            else if (input.indexOf("find") == 0) { //finds task in list
+                System.out.println(partition);
+                String f_input = input.substring(5);
+                boolean flag = false;
+                for(int a = 0; a < task_list.size(); a++) {
+                    if(String.valueOf(task_list.get(a)).contains(f_input)) {
+                        if(!flag) {
+                            System.out.println("Here are the matching tasks in your list:\n");
+                        }
+                        flag = true;
+                        System.out.println((a+1) + ". " + task_list.get(a).toString() + "\n");
+                    }
+                }
+                if (!flag) {
+                    System.out.println("Sorry, could'nt find the task with ( " + f_input + " )\n");
                 }
                 System.out.println(partition);
             }
@@ -172,8 +190,8 @@ public class Duke {
                     else {
                         System.out.println(partition);
                         System.out.println("☹ OOPS!!! please enter a valid command\n" +
-                                            "done\n" + "list\n" + "todo\n" + "deadline\n" +
-                                            "event\n");
+                                            "done\t" + "list\n" + "delete\t" + "find\n" + "todo\t"
+                                            + "deadline\n" + "event\t");
                         System.out.println(partition);
                     }
                 }
