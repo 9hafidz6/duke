@@ -1,2 +1,67 @@
-D@0@CS2113 project@Mon Sep 09 12:00:00 SGT 2019
-E@0@birthday party@Mon Sep 09 18:00:00 SGT 2019
+_____________________________________
+Hello! i'm Duke
+What can i do for you?
+_____________________________________
+
+_____________________________________
+
+list is empty
+_____________________________________
+
+_____________________________________
+
+	Got it. I've added this task
+	[T][✘] assignments CS2113
+	Now you have 1 tasks in this list
+
+_____________________________________
+
+_____________________________________
+
+	Got it. I've added this task
+	[D][✘] CS2113 project (by:Mon Sep 09 12:00:00 SGT 2019)
+
+	Now you have 2 tasks in this list
+
+_____________________________________
+
+_____________________________________
+
+	Got it. I've added this task
+	[E][✘] birthday party (at: Mon Sep 09 18:00:00 SGT 2019)
+
+	Now you have 3 tasks in this list
+
+_____________________________________
+
+_____________________________________
+
+Here are the matching tasks in your list:
+
+1. [T][✘] assignments CS2113
+
+2. [D][✘] CS2113 project (by:Mon Sep 09 12:00:00 SGT 2019)
+
+_____________________________________
+
+_____________________________________
+
+Noted. I've removed this task: 
+
+[T][✘] assignments CS2113
+
+you have 2 tasks left in your list
+_____________________________________
+
+_____________________________________
+
+1. [D][✘] CS2113 project (by:Mon Sep 09 12:00:00 SGT 2019)
+
+2. [E][✘] birthday party (at: Mon Sep 09 18:00:00 SGT 2019)
+
+_____________________________________
+
+_____________________________________
+	Bye. Hope to see you again soon!
+_____________________________________
+
