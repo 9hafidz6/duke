@@ -1,0 +1,7 @@
+list
+todo assignments CS2113
+deadline CS2113 project /by 9/9/2019 1200
+event birthday party /at 9/9/2019 1800
+find CS2113
+delete 1
+bye
