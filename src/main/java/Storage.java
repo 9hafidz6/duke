@@ -1,10 +1,10 @@
 import java.io.*;
 import java.util.ArrayList;
 
-public class FileRW extends Task{
-    ArrayList<Task> task_list = new ArrayList<Task> (100);
+public class Storage extends Task{
+    private ArrayList<Task> task_list = new ArrayList<Task> (100);
 
-    public FileRW() {
+    public Storage() {
         super("default");
         try {
             FileReader fileRead = new FileReader("data/duke.txt");
@@ -49,6 +49,7 @@ public class FileRW extends Task{
         }
     }
     ArrayList<Task> GetData() {
+
         return task_list;
     }
     void requestToWriteTheFile(ArrayList<Task> taskList) {
