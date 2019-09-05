@@ -1,8 +1,15 @@
 list
 todo assignments CS2113
+todo tutorials for every module
 deadline CS2113 project /by 9/9/2019 1200
+deadline CG2027 assignment /by 8/9/2019 2359
 event birthday party /at 9/9/2019 1800
+event comex /at 7/9/2019 1400
 find CS2113
+find 3232323323232
+find c
 delete 1
+delete dgsdf
+delete -23
 list
 bye
