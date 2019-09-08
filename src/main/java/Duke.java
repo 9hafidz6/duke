@@ -39,39 +39,21 @@ public class Duke {
                 case "find":
                     findsTaskInList(ui, task_list, input);
                     break;
+                case "todo":
+                    insert_todo(ui, task_list, input);
+                    break;
+                case "deadline":
+                    insert_deadline(ui, f_date, task_list, input);
+                    break;
+                case "event":
+                    insert_event(ui, f_date, task_list, input);
+                    break;
                 default:
-                    boolean flag = false; //flag to check whether task exists in list
-
-                    for (Task task : task_list) {
-                        if (task_list.contains(input)) { //if item has already been added, don't add
-                            flag = true;
-                            break;
-                        }
-                    }
-                    if (flag) { //if task already exist, output input has already been added
-                        ui.line();
-                        System.out.println("\t" + input + " has already been added" + "\n");
-                        ui.line();
-                    }
-                    else { //if task does not exist in list, add to list
-                        if(input.indexOf("todo") == 0) { //if user enters todo command
-                            insert_todo(ui, task_list, input);
-                        }
-                        else if(input.indexOf("deadline") == 0) { //if user enters deadline command
-                            insert_deadline(ui, f_date, task_list, input);
-
-                        }
-                        else if(input.indexOf("event") == 0) { //if user enters event command
-                            insert_event(ui, f_date, task_list, input);
-                        }
-                        else {
-                            ui.line();
-                            System.out.println("☹ OOPS!!! please enter a valid command\n" +
-                                    "done\t" + "list\n" + "delete\t" + "find\n" + "todo\t"
-                                    + "deadline\n" + "event\t");
-                            ui.line();
-                        }
-                    }
+                    ui.line();
+                    System.out.println("☹ OOPS!!! please enter a valid command\n" +
+                            "done\t" + "list\n" + "delete\t" + "find\n" + "todo\t"
+                            + "deadline\n" + "event\t");
+                    ui.line();
             }
         }
     }
@@ -86,9 +68,13 @@ public class Duke {
             Date date = f_date.parse(token[1]);
             String formattedDate = date.toString();
             Task t = new Event(token[0],formattedDate);
-            task_list.add(t);
-            System.out.println("\tGot it. I've added this task\n\t" + t.toString() + "\n");
-            System.out.println("\tNow you have " + task_list.size() + " tasks in this list\n");
+            boolean flag = true;
+            flag = check_duplicate(task_list, t, flag);
+            if(flag) {
+                task_list.add(t);
+                System.out.println("\tGot it. I've added this task\n\t" + t.toString() + "\n");
+                System.out.println("\tNow you have " + task_list.size() + " tasks in this list\n");
+            }
         }
         catch (Exception e) {
             if(e instanceof StringIndexOutOfBoundsException) {
@@ -114,9 +100,13 @@ public class Duke {
             Date date = f_date.parse(token[1]);
             String formattedDate = date.toString();
             Task t = new Deadline(token[0], formattedDate);
-            task_list.add(t);
-            System.out.println("\tGot it. I've added this task\n\t" + t.toString() + "\n");
-            System.out.println("\tNow you have " + task_list.size() + " tasks in this list\n");
+            boolean flag = true;
+            flag = check_duplicate(task_list, t, flag);
+            if(flag) {
+                task_list.add(t);
+                System.out.println("\tGot it. I've added this task\n\t" + t.toString() + "\n");
+                System.out.println("\tNow you have " + task_list.size() + " tasks in this list\n");
+            }
         }
         catch (Exception e) {
             if(e instanceof StringIndexOutOfBoundsException) {
@@ -138,9 +128,13 @@ public class Duke {
             input = input.replaceAll("\\s+", " ");
             String t_input = input.substring(5);
             Task t = new ToDos(t_input);
-            task_list.add(t);
-            System.out.println("\tGot it. I've added this task\n\t" + t.toString());
-            System.out.println("\tNow you have " + task_list.size() + " tasks in this list\n");
+            boolean flag = true;
+            flag = check_duplicate(task_list, t, flag);
+            if(flag) {
+                task_list.add(t);
+                System.out.println("\tGot it. I've added this task\n\t" + t.toString());
+                System.out.println("\tNow you have " + task_list.size() + " tasks in this list\n");
+            }
         }
         catch (IndexOutOfBoundsException e) {
             System.out.println("☹ OOPS!!! The description of todo cannot be empty.");
@@ -172,7 +166,7 @@ public class Duke {
         ui.line();
         try {
             token = input.split(" ");
-            if(task_list.size() < Integer.parseInt(token[1])) {
+            if(task_list.size() < Integer.parseInt(token[1]) || Integer.parseInt(token[1]) < 0) {
                 System.out.println("Task number " + token[1] + " does not exist in the list, " + task_list.size() + " tasks left in your list");
             }
             else {
@@ -207,7 +201,7 @@ public class Duke {
             if( e instanceof NumberFormatException) {
                 System.out.println("☹ OOPS!!! Please enter a valid number.");
             }
-            else if( e instanceof IndexOutOfBoundsException) {
+            else {
                 System.out.println("☹ OOPS!!! The description of done cannot be empty.");
             }
         }
@@ -228,5 +222,15 @@ public class Duke {
     private static void exit(Ui ui, Storage file, ArrayList<Task> task_list) {
         file.requestToWriteTheFile(task_list);
         ui.bye_msg();
+    }
+
+    private static boolean check_duplicate(ArrayList<Task> task_list, Task t, boolean flag) {
+        for (Task task : task_list) {
+            if (task.toString().equals(t.toString())) {
+                flag = false;
+                System.out.println("the task \n" + t.toString() + "\nalready exist in list");
+            }
+        }
+        return flag;
     }
 }
