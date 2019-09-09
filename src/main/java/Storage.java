@@ -2,12 +2,12 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Storage extends Task{
-    private ArrayList<Task> task_list = new ArrayList<Task> (100);
+    private ArrayList<Task> task_list = new ArrayList<Task>(100);
 
     public Storage() {
         super("default");
         try {
-            FileReader fileRead = new FileReader("data/duke.txt");
+            FileReader fileRead = new FileReader("../data/duke.txt");
             BufferedReader reader = new BufferedReader(fileRead);
             String data;
 
@@ -54,7 +54,7 @@ public class Storage extends Task{
     }
     void requestToWriteTheFile(ArrayList<Task> taskList) {
         try {
-            FileWriter fileWriter = new FileWriter("data/duke.txt");
+            FileWriter fileWriter = new FileWriter("../data/duke.txt");
             BufferedWriter writer = new BufferedWriter(fileWriter);
             writer.write("");
             for (Task t : taskList) {

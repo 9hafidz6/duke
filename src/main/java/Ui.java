@@ -26,4 +26,12 @@ public class Ui {
     public String read_command() {
         return sc.nextLine();
     }
+
+    public void default_msg() {
+        line();
+        System.out.println("☹ OOPS!!! please enter a valid command\n" +
+                "done\t" + "list\n" + "delete\t" + "find\n" + "todo\t"
+                + "deadline\n" + "event\t");
+        line();
+    }
 }
