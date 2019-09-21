@@ -3,10 +3,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 class Parser{
-    private String command;
 
     Parser(String command) {
-        this.command = command;
     }
 
     /**
