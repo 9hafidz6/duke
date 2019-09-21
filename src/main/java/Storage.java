@@ -4,11 +4,6 @@ import java.util.ArrayList;
 public class Storage extends Task{
     private ArrayList<Task> task_list = new ArrayList<Task>(100);
 
-    /**
-     * reads data from the file path. depending on the value of data, store into task_list.
-     * if initial value, is T, add into TODOs. if initial data is D, add into Deadline.
-     * if initial data is E, add into Event
-     */
     public Storage() {
         super("default");
         try {
