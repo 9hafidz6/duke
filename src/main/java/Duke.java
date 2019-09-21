@@ -34,7 +34,6 @@ public class Duke {
         while(true) {
             input = ui.read_command();
             token = input.split(" ");
-            Parser parser = new Parser(input);
             switch (token[0]) {
                 case "bye":
                     Parser.exit(ui, file, task_list);

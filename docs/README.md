@@ -18,3 +18,7 @@ Example of usage:
 Expected outcome:
 
 `outcome`
+
+
+
+this is to test the checkout feature
