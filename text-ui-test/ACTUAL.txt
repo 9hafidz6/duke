@@ -1,96 +1,67 @@
 _____________________________________
 Hello! i'm Duke
 What can i do for you?
+_____________________________________
 
 _____________________________________
-_____________________________________
+
 list is empty
 _____________________________________
+
 _____________________________________
+
 	Got it. I've added this task
 	[T][✘] assignments CS2113
 	Now you have 1 tasks in this list
 
 _____________________________________
+
 _____________________________________
+
 	Got it. I've added this task
-	[T][✘] tutorials for every module
+	[D][✘] CS2113 project (by:Mon Sep 09 12:00:00 SGT 2019)
+
 	Now you have 2 tasks in this list
 
 _____________________________________
+
 _____________________________________
+
 	Got it. I've added this task
-	[D][✘] CS2113 project (by:Mon Sep 09 12:00:00 SGT 2019)
+	[E][✘] birthday party (at: Mon Sep 09 18:00:00 SGT 2019)
 
 	Now you have 3 tasks in this list
 
 _____________________________________
-_____________________________________
-	Got it. I've added this task
-	[D][✘] CG2027 assignment (by:Sun Sep 08 23:59:00 SGT 2019)
-
-	Now you have 4 tasks in this list
 
 _____________________________________
-_____________________________________
-	Got it. I've added this task
-	[E][✘] birthday party (at: Mon Sep 09 18:00:00 SGT 2019)
 
-	Now you have 5 tasks in this list
-
-_____________________________________
-_____________________________________
-	Got it. I've added this task
-	[E][✘] comex (at: Sat Sep 07 14:00:00 SGT 2019)
-
-	Now you have 6 tasks in this list
-
-_____________________________________
-_____________________________________
 Here are the matching tasks in your list:
 
 1. [T][✘] assignments CS2113
 
-3. [D][✘] CS2113 project (by:Mon Sep 09 12:00:00 SGT 2019)
+2. [D][✘] CS2113 project (by:Mon Sep 09 12:00:00 SGT 2019)
 
 _____________________________________
-_____________________________________
-Sorry, could'nt find the task with ( 3232323323232 )
 
 _____________________________________
-_____________________________________
-Here are the matching tasks in your list:
 
-3. [D][✘] CS2113 project (by:Mon Sep 09 12:00:00 SGT 2019)
-
-6. [E][✘] comex (at: Sat Sep 07 14:00:00 SGT 2019)
-
-_____________________________________
-_____________________________________
 Noted. I've removed this task: 
 
 [T][✘] assignments CS2113
 
-you have 5 tasks left in your list
+you have 2 tasks left in your list
 _____________________________________
-_____________________________________
-enter a valid index
-_____________________________________
-_____________________________________
-Task number -23 does not exist in the list, 5 tasks left in your list
-_____________________________________
-_____________________________________
-1. [T][✘] tutorials for every module
-
-2. [D][✘] CS2113 project (by:Mon Sep 09 12:00:00 SGT 2019)
-
-3. [D][✘] CG2027 assignment (by:Sun Sep 08 23:59:00 SGT 2019)
-
-4. [E][✘] birthday party (at: Mon Sep 09 18:00:00 SGT 2019)
-
-5. [E][✘] comex (at: Sat Sep 07 14:00:00 SGT 2019)
 
 _____________________________________
+
+1. [D][✘] CS2113 project (by:Mon Sep 09 12:00:00 SGT 2019)
+
+2. [E][✘] birthday party (at: Mon Sep 09 18:00:00 SGT 2019)
+
 _____________________________________
-Bye. Hope to see you again soon!
+
 _____________________________________
+	Bye. Hope to see you again soon!
+_____________________________________
+

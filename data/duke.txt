@@ -1,5 +1,4 @@
-T@0@tutorials for every module
-D@0@CS2113 project@Mon Sep 09 12:00:00 SGT 2019
-D@0@CG2027 assignment@Sun Sep 08 23:59:00 SGT 2019
-E@0@birthday party@Mon Sep 09 18:00:00 SGT 2019
-E@0@comex@Sat Sep 07 14:00:00 SGT 2019
+T@1@read book
+D@0@return book@June 6th
+E@0@project meeting@Aug 6th 2-4pm
+T@1@join sports club
